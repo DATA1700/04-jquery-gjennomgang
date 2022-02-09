@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <label for="skrivInn">Todo:</label>
@@ -14,8 +15,8 @@
 </body>
 
 <script>
-    const liste = document.getElementById("liste")
-    const ferdigListe = document.getElementById("ferdigListe")
+    const liste = $("#liste")
+    const ferdigListe = $("#ferdigListe")
     let id = 0
 
     function leggTil(task) {
@@ -23,20 +24,20 @@
             "<input type='checkbox' id='input-"+id+"' onchange='flytt("+id+")'>" +
             "<span>" + task + "</span>" +
             "</li>"
-        liste.insertAdjacentHTML('beforeend', ut)
-        document.getElementById("skrivInn").value = ""
+        liste.append(ut)
+        $("#skrivInn").val("")
         id++
     }
 
     function flytt(id) {
-        const checkbox = document.getElementById("input-"+id)
-        const rad = document.getElementById("rad-"+id)
-        if(checkbox.checked) {
-            rad.style.textDecoration = "line-through"
+        const checkbox = $("#input-"+id)
+        const rad = $("#rad-"+id)
+        if(checkbox.is(':checked')) {
+            rad.css({"text-decoration" : "line-through"})
             ferdigListe.append(rad)
         }
         else {
-            rad.style.textDecoration = "none"
+            rad.css({"text-decoration" : "none"})
             liste.append(rad)
         }
 
