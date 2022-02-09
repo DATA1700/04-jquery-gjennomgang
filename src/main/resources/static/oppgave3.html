@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 <body>
       <input type="text" size="2" id="tall1">
@@ -20,40 +22,40 @@
 <script>
   function valider(tall1, tall2) {
     if(isNaN(tall1) || isNaN(tall2)) {
-      document.getElementById("resultat").innerHTML = "Du må skrive inn tall"
+      $("#resultat").html("Du må skrive inn tall")
       return false;
     }
     return true;
   }
 
   function skrivUt(resultat) {
-    document.getElementById("resultat").innerHTML = resultat
+    $("#resultat").html(resultat)
   }
 
   function pluss() {
-    const tall1 = Number(document.getElementById("tall1").value)
-    const tall2 = Number(document.getElementById("tall2").value)
+    const tall1 = Number($("#tall1").val())
+    const tall2 = Number($("#tall2").val())
     if(!valider(tall1, tall2)) return
     skrivUt(tall1 + tall2)
   }
 
   function minus() {
-    const tall1 = Number(document.getElementById("tall1").value)
-    const tall2 = Number(document.getElementById("tall2").value)
+    const tall1 = Number($("#tall1").val())
+    const tall2 = Number($("#tall2").val())
     if(!valider(tall1, tall2)) return
     skrivUt(tall1 - tall2)
   }
 
   function ganging() {
-    const tall1 = Number(document.getElementById("tall1").value)
-    const tall2 = Number(document.getElementById("tall2").value)
+    const tall1 = Number($("#tall1").val())
+    const tall2 = Number($("#tall2").val())
     if(!valider(tall1, tall2)) return
     skrivUt(tall1 * tall2)
   }
 
   function deling() {
-    const tall1 = Number(document.getElementById("tall1").value)
-    const tall2 = Number(document.getElementById("tall2").value)
+    const tall1 = Number($("#tall1").val())
+    const tall2 = Number($("#tall2").val())
     if(!valider(tall1, tall2)) return
     skrivUt(tall1 / tall2)
   }
