@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
@@ -39,20 +40,20 @@
     let personer = []
 
     function registrer() {
-        const navn = document.getElementById("navn")
-        const adresse = document.getElementById("adresse")
-        const telefonnr = document.getElementById("telefonnr")
+        const navn = $("#navn")
+        const adresse = $("#adresse")
+        const telefonnr = $("#telefonnr")
 
         const person = {
-            navn: navn.value,
-            adresse: adresse.value,
-            telefonnr: telefonnr.value
+            navn: navn.val(),
+            adresse: adresse.val(),
+            telefonnr: telefonnr.val()
         }
 
         personer.push(person)
-        navn.value = ""
-        adresse.value = ""
-        telefonnr.value = ""
+        navn.val("")
+        adresse.val("")
+        telefonnr.val("")
         visPersonRegister()
     }
 
@@ -74,7 +75,7 @@
                 person.telefonnr + "</td></tr>"
         }
         ut += "</table>"
-        document.getElementById("personRegister").innerHTML = ut
+        $("#personRegister").html(ut)
     }
 </script>
 </html>
