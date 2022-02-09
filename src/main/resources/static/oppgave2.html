@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
@@ -15,12 +15,12 @@ Fahrenheit <input type="number" id="fahrenheit" onkeyup="fToC(this.value)">
 <script>
     function fToC(fahrenheit) {
         const celsius = (5/9)*(parseFloat(fahrenheit)- 32)
-        document.getElementById("celsius").value = celsius.toFixed(2)
+        $("#celsius").val(celsius.toFixed(2))
     }
 
     function cToF(celsius) {
         const fahrenheit = (9/5)*parseFloat(celsius)+32
-        document.getElementById("fahrenheit").value = fahrenheit.toFixed(2)
+        $("#fahrenheit").val(fahrenheit.toFixed(2))
     }
 </script>
 </html>
