@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
@@ -11,7 +12,7 @@
 
 </body>
 <script>
-    const liste = document.getElementById("liste")
+    const liste = $("#liste")
     const oppgaver = []
 
     const oppgave1 = {
@@ -52,18 +53,21 @@
             oppgaveIndex++
         }
         ut += "<button onclick='sjekkSvar()'>Sjekk svar"
-        liste.innerHTML = ut
+        liste.html(ut)
     }
 
     function sjekkSvar() {
         let riktigSvar = 0
         for(let oppgaveIndex = 0; oppgaveIndex < oppgaver.length; oppgaveIndex++) {
-            const radioKnapper = document.querySelectorAll('[name="oppgave-' + oppgaveIndex + '"]')
+            // const radioKnapper = document.querySelectorAll('[name="oppgave-' + oppgaveIndex + '"]')
+            // bruker ikke # forran for å selecte på name
+            const radioKnapper = $('oppgave-' + oppgaveIndex)
             let svar =""
 
             for(let alternativ of radioKnapper) {
                 if(alternativ.checked) {
-                    svar = alternativ.value
+                    // svar = alternativ.value
+                    svar = alternativ.val()
                     console.log(svar)
                     break
                 }
@@ -73,7 +77,7 @@
             }
 
         }
-        liste.innerHTML = ""
+        liste.html("")
         alert(riktigSvar + " av " + oppgaver.length + " oppgaver er riktig")
 
     }
