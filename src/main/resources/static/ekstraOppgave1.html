@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <label for="skrivInn">Todo:</label>
@@ -13,14 +14,14 @@
 </body>
 
 <script>
-    const liste = document.getElementById("liste")
+    const liste = $("#liste")
 
     function leggTil(task) {
         let ut = "<li>" +
             "<input type='checkbox'>" +
             "<span>" + task + "</span>" +
             "</li>"
-        liste.insertAdjacentHTML('beforeend', ut)
+        liste.append(ut)
     }
 </script>
 </html>
