@@ -4,29 +4,36 @@
     <meta charset="UTF-8">
     <title>Oppgave 1</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Document ready shorthand
+        $(() => {
+            $("#ok-knapp").on("click", () => {
+                alert("klikk funket")
+                visInfo()
+            })
+        })
+
+        //Oppgave 1
+        function visInfo() {
+            const navn = $("#inputNavn").val();
+            const alder = $("#inputAlder").val();
+
+            let alderTest = Number(alder)
+            if(isNaN(alderTest) || alderTest <= 0) {
+                alert("Du må skrive inn et tall over 0")
+            }
+            else {
+                $("#output").html("Hei " + navn + "! Du er " + alder + " år gammel.")
+            }
+        }
+    </script>
 </head>
 <body>
 <!--Oppgave 1--->
 Navn: <input type="text" id="inputNavn" >
 Alder: <input type="text" id="inputAlder">
-<button onclick="visInfo()">Ok</button>
+<button id="ok-knapp">Ok</button>
 <div id="output"></div>
 
 </body>
-<script>
-    //Oppgave 1
-    function visInfo() {
-        const navn = $("#inputNavn").val();
-        const alder = $("#inputAlder").val();
-
-        let alderTest = Number(alder)
-        if(isNaN(alderTest) || alderTest <= 0) {
-            alert("Du må skrive inn et tall over 0")
-        }
-        else {
-            $("#output").html("Hei " + navn + "! Du er " + alder + " år gammel.")
-        }
-
-    }
-</script>
 </html>
