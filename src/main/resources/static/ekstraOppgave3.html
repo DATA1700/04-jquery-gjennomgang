@@ -60,7 +60,7 @@
     function sjekkSvar() {
         let riktigSvar = 0
         for(let oppgaveIndex = 0; oppgaveIndex < oppgaver.length; oppgaveIndex++) {
-            const radioKnapper = document.querySelectorAll('[name="oppgave-' + oppgaveIndex + '"]')
+            const radioKnapper = $('[name="oppgave-' + oppgaveIndex + '"]')
             // const radioKnapper = $('oppgave-' + oppgaveIndex)
             let svar =""
 
